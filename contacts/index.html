@@ -1,19 +1,36 @@
-<h1>Contacts</h1>
-<nav>
-    <a href="https://chm011.github.io/portfolio/">Main</a>
-    <a href="https://chm011.github.io/portfolio/contacts/index.html">Contacts</a>
-    <a href="https://chm011.github.io/portfolio/projects/index.html">Projects</a>
-    <a href="https://github.com/chm011" target="_blank">Github Profile</a>
-    <a href="https://chm011.github.io/portfolio/resume/index.html">Resume</a>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Contacts</title>
+    
+</head>
+
+<body>
+    <nav>
+        <a href="https://chm011.github.io/portfolio/">Main</a>
+        <a href="https://chm011.github.io/portfolio/contacts/index.html" class="current">Contacts</a>
+        <a href="https://chm011.github.io/portfolio/projects/index.html">Projects</a>
+        <a href="https://github.com/chm011" target="_blank">Github Profile</a>
+        <a href="https://chm011.github.io/portfolio/resume/index.html">Resume</a>
+    </nav>
+    <h1>Contacts</h1>
+
+    <form action="mailto:chm011@ucsd.edu" method="POST" enctype=text/plain"">
+        <label for="email">Email:</label>
+        <input name="email" type="email">
+
+        <label for="Subject">Subject:</label>
+        <input name="subject">
+
+        <label for="Body">Body:</label>
+        <textarea name="body"></textarea>
+        
+        <button>Submit</button>
+    </form>
 
 
-<form action="mailto:chm011@ucsd.edu" method="POST" enctype=text/plain"">
-    <label for="email">Email:</label>
-    <input name="email" type="email">
-    <label for="Subject">Subject:</label>
-    <input name="subject">
-    <label for="Body">Body:</label>
-    <textarea name="body"></textarea>
-    <button>Submit</button>
-</form>
+</body>
+</html>
