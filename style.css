@@ -83,3 +83,70 @@ h1, h2, h3, h4, h5, h6{
   line-height: 1.1;
   text-wrap: balance;
 }
+
+#resume h2 {
+  text-align: center;
+  border-bottom: 1.5px solid black;
+  padding-bottom: 0.1em;
+}
+
+#summary p {
+  font-size: 13px;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.colleges{
+  margin-bottom: 15px;
+}
+
+.colleges div {
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.school-name{
+  float:left;
+  font-weight: bold;
+}
+.graduation-year{
+  float: right;
+
+}
+
+.degree {
+  margin-top: 0;
+  font-style: italic;
+  color: #555;
+}
+
+.work-experience-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.job-title{
+  font-weight:bold;
+  font-size: 19px;
+  margin-bottom: 0 ;
+  color: darkslategrey;
+}
+.company-name {
+  font-size: 16px;
+  margin-top: 0;
+}
+
+
+.responsibilities {
+  margin-top: 5px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+.responsibilities li {
+  margin-bottom: 5px;
+}
+
+td {
+  padding: 0;
+}
