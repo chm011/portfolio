@@ -19,10 +19,10 @@ if(currentLink) {
 
 //adding the navigation menu
 let pages = [
-    {url: '', title: 'Main'},
+    {url: '', title: 'Home'},
     {url: 'projects/', title: 'Projects'},
     {url: 'resume/', title: 'Resume'},
-    {url: 'contacts', title: 'Contacts'}
+    {url: 'contacts', title: 'Contacts'},
     {url: 'https://github.com/chm011', title: 'Github Profile'}
 ]
 
@@ -45,11 +45,17 @@ for (let p of pages) {
     a.textContent = title;
     nav.append(a);
 
+    function normalizePath(path) {
+        return path.replace(/\/+$/, ''); // Remove trailing slashes
+    }
+    
     //highlight current page
     a.classList.toggle(
         'current',
-        a.host === location.host && a.pathname === location.pathname
+        a.host === location.host &&
+        normalizePath(a.pathname) === normalizePath(location.pathname)
     );
+    
 
     //opening external links in a new tab
     if (a.host !== location.host) {
@@ -57,7 +63,7 @@ for (let p of pages) {
     }
 }
 
-const select = document.querySelector('#theme-swticher');
+const select = document.querySelector('#theme-switcher');
 
 select.addEventListener('input', function (event) {
     document.documentElement.style.setProperty('color-scheme', event.target.value);
