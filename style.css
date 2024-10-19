@@ -150,3 +150,27 @@ h1, h2, h3, h4, h5, h6{
 td {
   padding: 0;
 }
+
+html {
+  color-scheme: light dark;
+}
+
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `
+	<label class="color-scheme">
+		Theme:
+		<select id="theme-switcher">
+      <option value="light dark"> Automatic </option>
+      <option value="light"> Light </option>
+      <option value="dark"> Dark </option>
+		</select>
+	</label>`,
+);
+
+.color-scheme{
+  position: absolute;
+  top: 1rem;
+  right:1rem;
+  font-size:80%;
+}

@@ -58,4 +58,7 @@ a.classList.toggle(
 if (a.host !== location.host) {
     a.target = '_blank';
   }
-}
+
+select.addEventListener('input', function (event) {
+    console.log('color scheme changed to', event.target.value);
+});  
