@@ -5,12 +5,6 @@ function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
-// Normalize paths to avoid trailing slash issues
-function normalizePath(path) {
-  return path.replace(/\/+$/, '').replace(/^\/index\.html$/, '');
-}
-
-
 //Automatic current page link
 let navLinks = $$("nav a")
 let currentLink = navLinks.find(
@@ -23,7 +17,7 @@ let currentLink = navLinks.find(
 //Automatic Navigation Menu
 let pages = [
     { url: '', title: 'Home' },
-    { url: 'projects/', title: 'Projects' },
+    { url: '/portfolio/projects/index.html', title: 'Projects' },
     { url: 'resume/', title: 'Resume' },
     { url: 'contacts/', title: 'Contacts' },
     { url: 'https://github.com/chm011', title: 'Github Profile' }
@@ -49,7 +43,6 @@ const ARE_WE_HOME = document.documentElement.classList.contains('home');
 if (!ARE_WE_HOME && !url.startsWith('http')) {
     url = '../' + url;
   }
-  
   
 
 // Highlight the current page link
