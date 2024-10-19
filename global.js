@@ -10,10 +10,17 @@ function normalizePath(path) {
   return path.replace(/\/+$/, '').replace(/^\/index\.html$/, '');
 }
 
-// Check if we are on the home page
-const ARE_WE_HOME = normalizePath(location.pathname) === '';
 
-// Array of pages for the navigation menu
+//Automatic current page link
+let navLinks = $$("nav a")
+let currentLink = navLinks.find(
+    (a) => a.host === location.host && a.pathname === location.pathname,
+  );
+ if (currentLink) {
+    currrentLink?.classList.add('current');
+ }
+
+//Automatic Navigation Menu
 let pages = [
     { url: '', title: 'Home' },
     { url: 'projects/', title: 'Projects' },
@@ -22,41 +29,40 @@ let pages = [
     { url: 'https://github.com/chm011', title: 'Github Profile' }
   ];
   
-  
-
-// Create the <nav> element and add it to the body
-console.log('Creating <nav> element...');
 let nav = document.createElement('nav');
 document.body.prepend(nav);
-console.log('<nav> element created and added to the body.');
 
-// Add links to the <nav>
 for (let p of pages) {
-  let url = p.url;
-  let title = p.title;
+    let url = p.url;
+    let title = p.title; //TODO create link and add it to nav
+}
 
-  console.log(`Creating link: ${title} -> ${url}`);
+//Create link adn add it to nav
+//nav.insertAdjacentHTML('beforeend', `<a href="${url}">${title}</a>`);
+let a = document.createElement('a');
+a.href = url;
+a.textContent = title;
+nav.append(a); 
 
-  // Create <a> element
-  let a = document.createElement('a');
-  a.href = url;
-  a.textContent = title;
-  nav.append(a); // Add link to <nav>
-
-  // Highlight the current page link
-  if (
-    a.host === location.host &&
-    normalizePath(a.pathname) === normalizePath(location.pathname)
-  ) {
-    console.log(`Marking ${title} as current`);
-    a.classList.add('current');
+//Are we home
+const ARE_WE_HOME = document.documentElement.classList.contains('home');
+if (!ARE_WE_HOME && !url.startsWith('http')) {
+    url = '../' + url;
   }
+  
+  
 
-  // Open external links in a new tab
-  if (a.host !== location.host) {
+// Highlight the current page link
+a.classList.toggle(
+    'current',
+    a.host === location.host && a.pathname === location.pathname,
+  );
+
+// Open external links in a new tab
+if (a.host !== location.host) {
     a.target = '_blank';
   }
-}
+
 
 // Insert the theme switcher into the body
 document.body.insertAdjacentHTML(
