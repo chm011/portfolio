@@ -16,46 +16,25 @@ let pages = [
 
 // Create the <nav> element and prepend it to the body
 let nav = document.createElement('nav');
-console.log('Nav element created:', nav); // Log the nav element
-
 document.body.prepend(nav);
-console.log('Nav element prepended to body'); // Confirm prepend
+
 
 // Generate the links and append them to the nav
 for (let p of pages) {
-  console.log(`Adding link: ${p.title} -> ${p.url}`); // Debug log for each link
+  console.log(`Adding link: ${p.title} -> ${p.url}`); //
   let a = document.createElement('a');
   a.href = p.url;
   a.textContent = p.title;
   nav.appendChild(a); // Append link to nav
 
-  // Open external links in a new tab
-  if (a.host !== location.host) {
-    a.target = '_blank';
-  }
-
-  // Highlight the current page link
-  if (a.host === location.host && a.pathname === location.pathname) {
+// Highlight the current page link
+if (a.host === location.host && a.pathname === location.pathname) {
     a.classList.add('current');
-    console.log(`Highlighted current page: ${a.href}`); // Confirm highlight
-  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Open external links in a new tab
+if (a.host !== location.host) {
+    a.target = '_blank';
+}}
 
 // Insert the theme switcher into the body
 document.body.insertAdjacentHTML(
