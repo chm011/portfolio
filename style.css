@@ -151,7 +151,16 @@ td {
   padding: 0;
 }
 
-html {
+
+.color-scheme{
+  position: absolute;
+  top: 1rem;
+  right:1rem;
+  font-size:80%;
+}
+
+
+html{
   color-scheme: light dark;
 }
 
@@ -168,9 +177,3 @@ document.body.insertAdjacentHTML(
 	</label>`,
 );
 
-.color-scheme{
-  position: absolute;
-  top: 1rem;
-  right:1rem;
-  font-size:80%;
-}
