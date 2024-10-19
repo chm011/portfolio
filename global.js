@@ -1,59 +1,60 @@
-console.log('IT’S ALIVE!'); // Check if script is running
+console.log('IT’S ALIVE!'); 
 
 // Utility function to select elements
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
-//Automatic current page link
-let navLinks = $$("nav a")
-let currentLink = navLinks.find(
-    (a) => a.host === location.host && a.pathname === location.pathname,
-  );
- if (currentLink) {
-    currentLink?.classList.add('current');
- }
-
-//Automatic Navigation Menu
+// Define the pages for the navigation menu
 let pages = [
-    { url: '/portfolio/index.html', title: 'Home' },
-    { url: '/portfolio/projects/index.html', title: 'Projects' },
-    { url: '/portfolio/resume/index.html', title: 'Resume' },
-    { url: '/portfolio/contacts/index.html', title: 'Contacts' },
-    { url: 'https://github.com/chm011', title: 'Github Profile' }
-  ];
+  { url: '', title: 'Home' },
+  { url: '../projects/index.html', title: 'Projects' },
+  { url: '/portfolio/resume/index.html', title: 'Resume' },
+  { url: '/portfolio/contacts/index.html', title: 'Contacts' },
+  { url: 'https://github.com/chm011', title: 'Github Profile' }
+];
+
+// Create the <nav> element and prepend it to the body
 let nav = document.createElement('nav');
+console.log('Nav element created:', nav); // Log the nav element
+
 document.body.prepend(nav);
+console.log('Nav element prepended to body'); // Confirm prepend
 
+// Generate the links and append them to the nav
 for (let p of pages) {
-    let url = p.url;
-    let title = p.title; //TODO create link and add it to nav
-}
+  console.log(`Adding link: ${p.title} -> ${p.url}`); // Debug log for each link
+  let a = document.createElement('a');
+  a.href = p.url;
+  a.textContent = p.title;
+  nav.appendChild(a); // Append link to nav
 
-//Create link adn add it to nav
-//nav.insertAdjacentHTML('beforeend', `<a href="${url}">${title}</a>`);
-let a = document.createElement('a');
-a.href = url;
-a.textContent = title;
-nav.append(a); 
-
-//Are we home
-const ARE_WE_HOME = document.documentElement.classList.contains('home');
-if (!ARE_WE_HOME && !url.startsWith('http')) {
-    url = '../' + url;
-  }
-  
-
-// Highlight the current page link
-a.classList.toggle(
-    'current',
-    a.host === location.host && a.pathname === location.pathname,
-  );
-
-// Open external links in a new tab
-if (a.host !== location.host) {
+  // Open external links in a new tab
+  if (a.host !== location.host) {
     a.target = '_blank';
   }
+
+  // Highlight the current page link
+  if (a.host === location.host && a.pathname === location.pathname) {
+    a.classList.add('current');
+    console.log(`Highlighted current page: ${a.href}`); // Confirm highlight
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Insert the theme switcher into the body
