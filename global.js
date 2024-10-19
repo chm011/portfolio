@@ -7,8 +7,8 @@ function $$(selector, context = document) {
 
 // Define the pages for the navigation menu
 let pages = [
-  { url: '', title: 'Home' },
-  { url: '/portfolio/index.html', title: 'Projects' },
+  { url: '/portfolio/index.html', title: 'Home' },
+  { url: '/portfolio/projects/index.html', title: 'Projects' },
   { url: '/portfolio/resume/index.html', title: 'Resume' },
   { url: '/portfolio/contacts/index.html', title: 'Contacts' },
   { url: 'https://github.com/chm011', title: 'Github Profile' }
