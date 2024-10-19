@@ -17,7 +17,7 @@ body {
   nav {
     display: flex;
     flex-direction: row;
-    margin-bottom: 1ch;
+    margin-bottom: 0.2ch;
     border-bottom: 1px solid var(--selected-page-color); /* width style color */
   }
 
@@ -164,16 +164,20 @@ html{
   color-scheme: light dark;
 }
 
-document.body.insertAdjacentHTML(
-  'afterbegin',
-  `
-	<label class="color-scheme">
-		Theme:
-		<select id="theme-switcher">
-      <option value="light dark"> Automatic </option>
-      <option value="light"> Light </option>
-      <option value="dark"> Dark </option>
-		</select>
-	</label>`,
-);
+nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom-color: var(--border-color);
+  padding: 10px;
+}
 
+body {
+  background-color: canvas;
+  color: canvastext;
+}
+
+
+
+.color-scheme {
+  font-size: 80%;
+  font-family: inherit;
+}
