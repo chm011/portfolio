@@ -16,7 +16,7 @@ const ARE_WE_HOME = normalizePath(location.pathname) === '';
 // Array of pages for the navigation menu
 let pages = [
     { url: '/portfolio/index.html', title: 'Home' },
-    { url: '/portfolio/projects/index.html', title: 'Projects' },
+    { url: 'https://chm011.github.io/projects/index.html', title: 'Projects' },
     { url: '/portfolio/resume/index.html', title: 'Resume' },
     { url: '/portfolio/contacts/index.html', title: 'Contacts' },
     { url: 'https://github.com/chm011', title: 'Github Profile' }
